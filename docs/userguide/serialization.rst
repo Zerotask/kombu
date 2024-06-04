@@ -68,7 +68,7 @@ Each option has its advantages and disadvantages.
             Model,
             "model",
             lambda o: [o._meta.label, o.pk],
-            lambda o: apps.get_model(o[0]).objects.get(pk=o[1]),
+            lambda o: apps.get_model(o[0])._default_manager.get(pk=o[1]),
         )
 
 `pickle` -- If you have no desire to support any language other than
